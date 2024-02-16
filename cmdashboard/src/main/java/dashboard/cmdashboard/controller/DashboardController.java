@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 import dashboard.cmdashboard.model.Contract;
 import dashboard.cmdashboard.model.CustomerManager;
 import dashboard.cmdashboard.model.GeoRegion;
+import dashboard.cmdashboard.model.ManagerSummary;
 import dashboard.cmdashboard.service.ContractService;
 import dashboard.cmdashboard.service.CustomerManagerService;
 import dashboard.cmdashboard.service.GeoRegionService;
+
 
 @RestController
 @RequestMapping("/api")
@@ -73,6 +75,20 @@ public class DashboardController {
         return contractService.getContractDetails();
     }
 
+
+     // Group Contracts by Manager and ACV
+    //  @GetMapping("/group-by-manager")
+    //  public List<ManagerSummary> groupByManagerNameAndACV() {
+    //      return contractService.groupByManagerNameAndACV();
+    //  }
+
+     //
+    
+    @GetMapping("/summary")
+    public List<ManagerSummary> getManagerSummary() {
+        return customerManagerService.getManagerSummary();
+    }
+     
 
    
 }

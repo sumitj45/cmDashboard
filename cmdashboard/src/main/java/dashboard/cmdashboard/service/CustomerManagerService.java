@@ -6,9 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dashboard.cmdashboard.model.CustomerManager;
+import dashboard.cmdashboard.model.ManagerSummary;
 import dashboard.cmdashboard.repository.CustomerManagerRepository;
-
-
 
 @Service
 public class CustomerManagerService {
@@ -16,13 +15,20 @@ public class CustomerManagerService {
     @Autowired
     private CustomerManagerRepository customerManagerRepository;
 
-    //for Get Method
+    // Get all managers
     public List<CustomerManager> getAllManagers() {
         return customerManagerRepository.findAll();
     }
-//for post Method..
+
+    // Create a new manager
     public CustomerManager createManager(CustomerManager customerManager) {
-        // save the new customerManager
+        // Save the new customerManager
         return customerManagerRepository.save(customerManager);
     }
+
+    // //
+    public List<ManagerSummary> getManagerSummary() {
+        return customerManagerRepository.getManagerSummary();
+    }
+    
 }

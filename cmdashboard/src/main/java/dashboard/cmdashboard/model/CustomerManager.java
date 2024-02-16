@@ -19,7 +19,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
-
 @Data
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "managerId")
@@ -42,6 +41,9 @@ public class CustomerManager {
     @OneToMany(mappedBy = "customerManager", cascade = CascadeType.ALL)
     @JsonIdentityReference(alwaysAsId = true)
     private List<Contract> contracts; // One-to-Many relationship with contract
+
+    // new field add kra hai yaha
+    
 
 
 }
